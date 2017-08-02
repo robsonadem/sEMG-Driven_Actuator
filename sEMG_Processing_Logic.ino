@@ -6,8 +6,8 @@
  ||                  It reads the sEMG signal and performs a control. 
  ||
 *+----------------------------------------------------------------------
-int sensorValueThreshold = 400;
-int LED=5;
+int sensorValueThreshold = 400;//a treshold in which values above it are considered enough for contraction 
+int LED=5;// Pins for LED signal
 // the setup routine runs once when you press reset:
 void setup() {
   // initialize serial communication at 9600 bits per second:
@@ -22,11 +22,11 @@ void loop() {
   Serial.print(sensorValue);
   if (sensorValue > sensorValueThreshold){
     Serial.println("---CONTRACTION DETECTED");
-    digitalWrite(LED, HIGH);
+    digitalWrite(LED, HIGH);// LED ON
   }
   else{
     Serial.println("");
-    digitalWrite(LED, LOW);
+    digitalWrite(LED, LOW);// LED OFF
   }
   delay(100);
 }
